@@ -28,7 +28,7 @@ un_hg_prompt_info() {
 	fi
 }
 
-local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
+local exit_code="%(?,,%{$fg[red]%}%?%{$reset_color%})"
 
 # Prompt format:
 #
@@ -43,11 +43,11 @@ PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \
 %{$fg[white]%}@ \
-%{$fg[green]%}%m \
-%{$fg[white]%}in \
-%{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
+%{$fg[green]%}%m\
+%{$fg[white]%}: \
+%{$terminfo[bold]$fg[yellow]%}%4~%{$reset_color%}\
 ${hg_info}\
 ${git_info}\
  \
-%{$fg[white]%}[%*] $exit_code
+$exit_code
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
